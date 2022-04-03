@@ -13,7 +13,7 @@ describe("MyNFT", function () {
     let balance = await firedguys.balanceOf(recipient);
     expect(balance).to.equal(0);
 
-    const newlyMintedToken = await firedguys.payToMint(recipient, metadataURI, { value: ethers.utils.parseEther('0.05') });
+    const newlyMintedToken = await firedguys.payToMint(recipient, metadataURI, { value: ethers.utils.parseEther('0.005') });
 
     // wait until the transaction is mined
     await newlyMintedToken.wait();
@@ -22,6 +22,6 @@ describe("MyNFT", function () {
     expect(balance).to.equal(1);
 
     expect(await firedguys.isContentOwned(metadataURI)).to.equal(true);
-    const newlyMintedToken2 = await firedguys.payToMint(recipient, 'foo', { value: ethers.utils.parseEther('0.05') });
+    const newlyMintedToken2 = await firedguys.payToMint(recipient, 'foo', { value: ethers.utils.parseEther('0.005') });
   });
 });
